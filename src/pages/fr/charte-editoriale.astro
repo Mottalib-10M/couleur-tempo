@@ -1,0 +1,28 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'fr';
+---
+<PageLayout title={`Charte éditoriale – ${SITE_NAMES[lang]}`} description="D’où viennent la couleur Tempo et les prix publiés ici, qui en répond, à quel rythme ils sont relus, et ce qui se passe quand une erreur est signalée sur une couleur ou un tarif." lang={lang} noindex={true} breadcrumbs={[{ label: 'Charte éditoriale' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Charte éditoriale et politique de correction</h1>
+    <p>Une couleur fausse la veille d’un jour rouge, et un foyer chauffé à l’électricité paie sa journée au prix fort. Un prix périmé, et la comparaison des options ne veut plus rien dire. Voici d’où viennent nos données et ce que nous faisons quand l’une d’elles est fausse.</p>
+    <h2>Responsabilité</h2><p>Contenus et calculs sont sous la responsabilité de {AUTHOR_NAME}. Contact : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Sources primaires uniquement</h2>
+    <ul>
+      <li><strong>RTE</strong> : calendrier Tempo et couleur du lendemain, consommation nationale (éCO2mix) ;</li>
+      <li><strong>la Commission de régulation de l’énergie</strong> : délibérations sur les tarifs réglementés et sur le placement des heures creuses ;</li>
+      <li><strong>la grille officielle du tarif bleu</strong> applicable à la date indiquée ;</li>
+      <li><strong>Enedis</strong> : calendrier du changement des heures creuses.</li>
+    </ul>
+    <p>Aucune couleur, aucun prix n’est repris d’un comparateur ou d’un forum. Une prévision de couleur au-delà de la publication de RTE n’est jamais présentée comme une information.</p>
+    <h2>Estimations, jamais des factures</h2><p>Chaque coût est une estimation fondée sur vos saisies et sur le tarif réglementé en vigueur. Vos plages d’heures creuses, vos index réels et les éventuelles majorations font la facture ; c’est elle qui fait foi.</p>
+    <h2>Contrôles avant publication</h2><p>Chaque reconstruction rejoue des factures calculées à la main et vérifie les quotas et les règles de placement de toutes les saisons Tempo. Une couleur qui violerait une règle bloque la mise à jour au lieu d’être affichée.</p>
+    <h2>Calendrier de mise à jour</h2><p>Couleurs : chaque jour. Prix : à chaque mouvement du tarif réglementé. Profil de chauffage : chaque année après le 31 août. La date affichée en bas de page vient des fichiers de données.</p>
+    <h2>Traitement des erreurs</h2>
+    <ol><li>Vérification contre la source primaire.</li><li>Correction des données ou du code, ajout d’un test.</li><li>Nouvelle date sur les pages concernées.</li></ol>
+    <h2>Indépendance</h2><p>Aucun lien commercial avec un fournisseur, un courtier ou un installateur. Toute relation de ce type serait indiquée dans le texte.</p>
+    <p>Voir aussi la <a href={route('method', lang)}>méthode de calcul</a>. Version : {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

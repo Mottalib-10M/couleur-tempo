@@ -1,0 +1,20 @@
+{
+ "accent": "#24479B",
+ "symbol": "kWh",
+ "variants": [
+  {
+   "file": "og-fr.png",
+   "title": "Couleur Tempo demain\net option la moins chère",
+   "subtitle": "Jours restants · Heures creuses · Base, HC ou Tempo",
+   "badge": "Couleur RTE du jour · tarif réglementé du 1er août 2026",
+   "brand": "Tempo Demain"
+  },
+  {
+   "file": "og-en.png",
+   "title": "Tempo colour tomorrow\nand the cheapest option",
+   "subtitle": "Days left · Off-peak hours · Base, Off-peak or Tempo",
+   "badge": "RTE colour of the day · regulated tariff of 1 August 2026",
+   "brand": "Tempo Demain"
+  }
+ ]
+}

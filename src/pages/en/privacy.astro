@@ -1,0 +1,29 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { CONTACT_EMAIL, LEGAL, SITE_NAMES, SITE_URL, CLARITY_ID } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'en';
+const updated = '2026-10-15';
+---
+<PageLayout title={`Privacy policy – ${SITE_NAMES[lang]}`} description="Data processed by Tempo Demain: no input sent, no cookie, only the host’s technical logs; your rights under the GDPR and how to complain to the French data protection authority." lang={lang} noindex={true} breadcrumbs={[{ label: 'Privacy' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Privacy policy</h1>
+    <p>This page describes the processing of personal data linked to {SITE_URL}, under articles 12 to 14 of Regulation (EU) 2016/679 (GDPR) and French law no. 78-17 of 6 January 1978.</p>
+    <h2>1. Controller</h2>
+    <LegalIdentity lang={lang} />
+    <p>Contact: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. No data protection officer has been appointed, as the conditions of article 37 GDPR are not met.</p>
+    <h2>2. Your inputs stay in your browser</h2>
+    <p>Annual use, meter power, heating share, appliances: what you type is calculated by your browser and <strong>sent to no server</strong>, neither stored nor linked to an identifier. The site never asks for your name, phone number or email address. The share link carries your inputs in the page address: only give it to people you choose.</p>
+    <h2>3. Processing carried out</h2>
+    <h3>Host connection logs</h3><p>The host records the IP address, date, page requested, browser and referring page. Purpose: security and service diagnostics. Legal basis: legitimate interest (art. 6(1)(f) GDPR). Duration: that of the host’s own policy, GitHub.</p>
+    <h3>No cookies, no audience measurement</h3><p>The site sets no cookie, does not use browser storage and loads no audience statistics, advertising or social-media tool. There is therefore no consent banner: there is nothing to accept.</p>
+    {CLARITY_ID && <><h3>Anonymous stability measurement (Microsoft Clarity, cookieless)</h3><p>To spot errors, slow pages and buttons that do not respond, the site loads Microsoft Clarity in its cookieless mode: no Clarity cookie is set, each page view gets a single-use identifier, page content and your inputs are masked. Controller: Microsoft Ireland Operations Limited. Retention: 30 days for recordings, 13 months for aggregate statistics. Basis: legitimate interest (art. 6(1)(f) GDPR). Objection: block clarity.ms in your browser; calculations keep working.</p></>}
+    <h3>Messages you send</h3><p>If you write to the contact address, your message is kept while we reply and fix any error, then deleted within twelve months.</p>
+    <h2>4. Recipients</h2><p>No data is sold or passed on, in particular to an energy supplier or broker. The host, GitHub, accesses it as a processor within the meaning of article 28 GDPR.</p>
+    <h2>5. Transfers outside the European Union</h2><p>GitHub, Inc. is based in the United States; connection logs may be processed there under the EU–U.S. Data Privacy Framework and the European Commission’s standard contractual clauses.</p>
+    <h2>6. Your rights</h2><p>Rights of access, rectification, erasure, restriction, objection and portability (articles 15 to 22 GDPR): write to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>, answer within one month. You may complain to the {LEGAL.supervisoryAuthority}: <a href={LEGAL.supervisoryAuthorityUrl} rel="nofollow noopener" target="_blank">{LEGAL.supervisoryAuthorityUrl}</a>.</p>
+    <h2>7. No automated decision</h2><p>A calculation result is an estimate made at your request with no legal effect: it is not a decision within the meaning of article 22 GDPR and binds no supplier.</p>
+    <p>See also the <a href={route('cookies', lang)}>cookies</a> page. Last updated: {updated}.</p>
+  </div>
+</PageLayout>

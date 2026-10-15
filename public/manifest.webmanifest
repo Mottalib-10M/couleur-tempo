@@ -1,0 +1,21 @@
+{
+ "name": "Tempo Demain",
+ "short_name": "Tempo Demain",
+ "description": "Couleur Tempo du jour et de demain, jours rouges et blancs restants, nouvelles heures creuses et comparateur Base, Heures creuses ou Tempo au tarif d'août 2026.",
+ "start_url": "/fr/",
+ "display": "standalone",
+ "background_color": "#ffffff",
+ "theme_color": "#24479B",
+ "icons": [
+  {
+   "src": "/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ]
+}

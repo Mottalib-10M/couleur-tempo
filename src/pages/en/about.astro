@@ -1,0 +1,25 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { YEAR, LAST_UPDATED, AUTHOR_NAME, CONTACT_EMAIL, AUTHOR_ROLE } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { personSchema, organizationSchema, breadcrumbSchema, profilePageSchema } from '../../lib/seo';
+import { displayDate } from '../../lib/format';
+const lang = 'en';
+---
+<PageLayout title="Tempo Demain: who publishes these 2026 Tempo calculations" description="Who publishes Tempo Demain, why an independent site on the Tempo colour and the 2026 blue tariff, where the figures come from and how to report an error." lang={lang} jsonLd={[personSchema(lang), organizationSchema(lang), profilePageSchema({ path: route('about', lang), lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'About', path: route('about', lang) }])]} breadcrumbs={[{ label: 'About' }]}>
+  <header class="mb-6"><h1 class="text-3xl font-bold text-navy-900 md:text-4xl">About Tempo Demain</h1></header>
+  <div class="prose prose-slate max-w-none">
+    <div class="not-prose mb-6"><p class="text-lg font-semibold text-navy-900">{AUTHOR_NAME}</p><p class="text-navy-700">{AUTHOR_ROLE[lang]}</p></div>
+    <p>Tempo Demain is published by Radif Partners. It answers two questions that hundreds of thousands of French households ask every winter day: what colour will tomorrow be, and does the Tempo option really save money against Base or Off-peak?</p>
+    <h2>Why this site exists</h2>
+    <p>On those searches the top results belong to comparison sites that earn money by putting you in touch with suppliers. The colour of the day sits next to a number to call and a button asking to call you back; some calendars count a different number of blue days than their own counter. We wanted the opposite: the colour RTE publishes, counts that add up, and a calculation on your own consumption, asking nothing in return.</p>
+    <h2>Where the figures come from</h2>
+    <p>The colour is read straight from RTE’s open data several times a day. Prices are those of the official blue tariff grid, set on the energy regulator’s proposal. The split of heating between blue, white and red days is worked out from national demand measured by RTE since 2014. Everything, formulas included, is in the <a href={route('method', lang)}>calculation method</a>.</p>
+    <h2>What we are not</h2>
+    <p>Radif Partners is not EDF, RTE, Enedis, an electricity supplier or a broker. We sell no contract, take no commission and pass on no profile. A cost shown here is an estimate on the regulated tariff: your bill is what counts.</p>
+    <h2>Funding and data</h2><p>The site is free and needs no sign-up. Calculations run in your browser and nothing you type is stored. If it ever carries advertising, it will never sit above a calculation or be presented as a recommendation.</p>
+    <h2>Why an English version</h2><p>Every page exists in English for people who have moved to France and are meeting the vocabulary of the blue tariff, off-peak hours and red days for the first time: French terms are explained, amounts stay in euros.</p>
+    <h2>Write to us</h2><p>A colour that does not match RTE’s, a price that has changed, a case the comparison does not cover: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. See also the <a href={route('editorial', lang)}>editorial policy</a> and the <a href={route('terms', lang)}>legal notice</a>.</p>
+    <p class="text-sm text-navy-600">{YEAR} tariff checked on <time datetime={LAST_UPDATED}>{displayDate(LAST_UPDATED, 'en-GB')}</time>.</p>
+  </div>
+</PageLayout>

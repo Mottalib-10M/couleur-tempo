@@ -1,0 +1,22 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'fr';
+---
+<PageLayout title={`Contact – ${SITE_NAMES[lang]}`} description="Écrire à l’éditeur de Tempo Demain : signaler une couleur ou un prix qui ne correspond pas aux sources officielles, poser une question sur la méthode, intégrer le comparateur." lang={lang} noindex={true} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Contact</h1>
+    <p>Une seule adresse, lue chaque semaine : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Il n’y a pas de ligne téléphonique, et nous ne rappelons personne : ce site ne vend rien.</p>
+    <h2>Signaler une erreur</h2>
+    <p>Pour une couleur, indiquez la date et ce que publie le calendrier Tempo de RTE pour ce jour. Pour un prix, joignez la grille ou le texte officiel qui le contredit. Pour un calcul, collez le lien de partage du comparateur : il reprend vos saisies, rien d’autre. Un écart confirmé est corrigé dans le fichier de paramètres et devient un test, comme le prévoit la <a href={route('editorial', lang)}>charte éditoriale</a>.</p>
+    <h2>Ce que nous ne pouvons pas faire</h2>
+    <p>Nous n’avons accès à aucun contrat ni à aucun compteur. Pour changer d’option, de puissance ou de fournisseur, adressez-vous à votre fournisseur ; pour connaître vos plages d’heures creuses exactes, à votre fournisseur ou à votre facture ; pour une panne, au gestionnaire de réseau.</p>
+    <h2>Intégrer le comparateur</h2>
+    <p>Associations de consommateurs, agences locales de l’énergie, rédactions : le comparateur Base, Heures creuses ou Tempo s’intègre gratuitement en iframe. Le code est sur la page <a href={route('widget', lang)}>Intégrer le comparateur</a>.</p>
+    <h2>Éditeur</h2>
+    <LegalIdentity lang={lang} />
+    <p>{AUTHOR_NAME} répond du contenu de Tempo Demain ; l’identité complète figure dans les <a href={route('terms', lang)}>mentions légales</a>. Page revue le {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

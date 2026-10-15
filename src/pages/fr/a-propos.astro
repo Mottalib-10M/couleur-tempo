@@ -1,0 +1,25 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { YEAR, LAST_UPDATED, AUTHOR_NAME, CONTACT_EMAIL, AUTHOR_ROLE } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { personSchema, organizationSchema, breadcrumbSchema, profilePageSchema } from '../../lib/seo';
+import { displayDate } from '../../lib/format';
+const lang = 'fr';
+---
+<PageLayout title="Tempo Demain : qui publie la couleur et les calculs de 2026" description="Qui édite Tempo Demain, pourquoi un site indépendant sur la couleur Tempo et le tarif bleu 2026, d’où viennent les chiffres et comment signaler une erreur." lang={lang} jsonLd={[personSchema(lang), organizationSchema(lang), profilePageSchema({ path: route('about', lang), lang }), breadcrumbSchema([{ name: 'Accueil', path: route('home', lang) }, { name: 'À propos', path: route('about', lang) }])]} breadcrumbs={[{ label: 'À propos' }]}>
+  <header class="mb-6"><h1 class="text-3xl font-bold text-navy-900 md:text-4xl">À propos de Tempo Demain</h1></header>
+  <div class="prose prose-slate max-w-none">
+    <div class="not-prose mb-6"><p class="text-lg font-semibold text-navy-900">{AUTHOR_NAME}</p><p class="text-navy-700">{AUTHOR_ROLE[lang]}</p></div>
+    <p>Tempo Demain est édité par Radif Partners. Il répond à deux questions que des centaines de milliers de foyers se posent chaque jour d’hiver : de quelle couleur sera demain, et l’option Tempo me fait-elle vraiment gagner de l’argent face à la Base ou aux Heures creuses ?</p>
+    <h2>Pourquoi ce site existe</h2>
+    <p>Sur ces requêtes, les premières pages sont tenues par des comparateurs qui vivent de la mise en relation avec des fournisseurs. La couleur du jour y voisine avec un numéro à appeler et un bouton pour être rappelé ; certains calendriers comptent un nombre de jours bleus différent de leur propre compteur. Nous voulions l’inverse : la couleur publiée par RTE, des comptes qui se tiennent, et un calcul sur votre propre consommation, sans rien vous demander en échange.</p>
+    <h2>D’où viennent les chiffres</h2>
+    <p>La couleur est relevée directement dans les données ouvertes de RTE, plusieurs fois par jour. Les prix sont ceux de la grille officielle du tarif bleu, établie sur proposition de la CRE. La répartition du chauffage entre jours bleus, blancs et rouges est calculée à partir de la consommation nationale mesurée par RTE depuis 2014. Tout est détaillé, formules comprises, dans la <a href={route('method', lang)}>méthode de calcul</a>.</p>
+    <h2>Ce que nous ne sommes pas</h2>
+    <p>Radif Partners n’est ni EDF, ni RTE, ni Enedis, ni un fournisseur d’électricité, ni un courtier. Nous ne vendons aucun contrat, ne touchons aucune commission et ne transmettons aucun profil. Un coût affiché ici est une estimation au tarif réglementé : votre facture fait foi.</p>
+    <h2>Financement et données</h2><p>Le site est gratuit et sans inscription. Les calculs se font dans votre navigateur et rien de ce que vous tapez n’est enregistré. S’il affiche un jour de la publicité, elle ne sera jamais placée au-dessus d’un calcul ni présentée comme une recommandation.</p>
+    <h2>Une version anglaise</h2><p>Chaque page existe en anglais, pour les étrangers installés en France qui découvrent le vocabulaire du tarif bleu, des heures creuses et des jours rouges : les termes français y sont expliqués, les montants restent en euros.</p>
+    <h2>Nous écrire</h2><p>Une couleur qui ne correspond pas à celle de RTE, un prix qui a changé, un cas que le comparateur ne couvre pas : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Voir aussi la <a href={route('editorial', lang)}>charte éditoriale</a> et les <a href={route('terms', lang)}>mentions légales</a>.</p>
+    <p class="text-sm text-navy-600">Tarif {YEAR} vérifié le <time datetime={LAST_UPDATED}>{displayDate(LAST_UPDATED, 'fr-FR')}</time>.</p>
+  </div>
+</PageLayout>

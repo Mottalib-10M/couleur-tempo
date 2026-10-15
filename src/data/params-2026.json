@@ -1,0 +1,256 @@
+{
+  "_lisezmoi": "Tarif réglementé de vente d'électricité (tarif bleu résidentiel, France métropolitaine continentale) en vigueur au 1er août 2026, règles Tempo et règles de placement des heures creuses. Prix TTC lus sur la grille officielle EDF « Tarif Bleu » applicable au 1er août 2026, qui reprend les barèmes proposés par la CRE (délibération n° 2026-147 du 15 juillet 2026) ; relevé le 2026-10-15. Abonnements : € TTC par mois. Prix du kWh : € TTC. Règles Tempo : délibération CRE du 16 juillet 2014 et fiche « Méthode de choix des jours Tempo » de RTE (indice 2 du 7 janvier 2025). Heures creuses : délibération CRE n° 2026-33 du 4 février 2026 (tableau 4), annexe du communiqué CRE du 6 février 2025 et calendrier Enedis. Prochain mouvement tarifaire attendu au 1er février 2027 : non publié à la date du relevé.",
+  "year": 2026,
+  "retrieved_at": "2026-10-15",
+  "valid_from": "2026-08-01",
+  "valid_to": "2027-01-31",
+  "puissances": [
+    3,
+    6,
+    9,
+    12,
+    15,
+    18,
+    24,
+    30,
+    36
+  ],
+  "base": {
+    "abo": {
+      "3": 12.13,
+      "6": 15.86,
+      "9": 19.88,
+      "12": 23.76,
+      "15": 27.4,
+      "18": 31.14,
+      "24": 39.14,
+      "30": 46.47,
+      "36": 53.88
+    },
+    "kwh": {
+      "3": 0.2001,
+      "6": 0.2001,
+      "9": 0.1985,
+      "12": 0.1985,
+      "15": 0.1985,
+      "18": 0.1985,
+      "24": 0.1985,
+      "30": 0.1985,
+      "36": 0.1985
+    },
+    "extinction_des_kva": 9
+  },
+  "hc": {
+    "abo": {
+      "3": 12.13,
+      "6": 15.86,
+      "9": 19.88,
+      "12": 23.76,
+      "15": 27.4,
+      "18": 31.14,
+      "24": 39.14,
+      "30": 46.47,
+      "36": 53.88
+    },
+    "hp": 0.2142,
+    "hc": 0.1589,
+    "ouvert_3kva_depuis": "2026-08-01"
+  },
+  "tempo": {
+    "abo": {
+      "6": 15.8,
+      "9": 19.7,
+      "12": 23.5,
+      "15": 27.01,
+      "18": 30.69,
+      "24": 38.21,
+      "30": 45.82,
+      "36": 53.76
+    },
+    "kwh": {
+      "B": {
+        "hc": 0.1356,
+        "hp": 0.1654
+      },
+      "W": {
+        "hc": 0.1536,
+        "hp": 0.1921
+      },
+      "R": {
+        "hc": 0.1615,
+        "hp": 0.7295
+      }
+    },
+    "kva_min": 6
+  },
+  "taxes": {
+    "accise_kwh_htva": 0.03062,
+    "tva": 0.2,
+    "majoration_sans_linky_an_ht": 40.08,
+    "majoration_sans_index_an_ht": 25.62,
+    "majoration_autoproducteur_an_ht": 9.84
+  },
+  "tempo_regles": {
+    "jours_rouges": 22,
+    "jours_blancs": 43,
+    "jours_bleus_annee_365": 300,
+    "debut_saison": "09-01",
+    "rouge_du": "11-01",
+    "rouge_au": "03-31",
+    "rouge_max_consecutifs": 5,
+    "heure_debut_jour": 6,
+    "hc_debut": 22,
+    "hc_fin": 6,
+    "publication": "10:30",
+    "presignal": "entre 8 h et 10 h 30",
+    "saison_2019_2020": {
+      "rouges": 18,
+      "blancs": 47,
+      "remplacement_depuis": "2020-03-19"
+    }
+  },
+  "heures_creuses": {
+    "heures_par_jour": 8,
+    "nuit_min_consecutives": 5,
+    "nuit_de": 23,
+    "nuit_a": 7,
+    "apres_midi_de": 11,
+    "apres_midi_a": 17,
+    "apres_midi_max": 3,
+    "ete_du": "04-01",
+    "ete_au": "10-31",
+    "a_deplacer": {
+      "hiver": [
+        [
+          7,
+          11
+        ],
+        [
+          17,
+          21
+        ]
+      ],
+      "ete": [
+        [
+          7,
+          10
+        ],
+        [
+          18,
+          23
+        ]
+      ]
+    },
+    "a_favoriser": {
+      "hiver": [],
+      "ete": [
+        [
+          2,
+          6
+        ],
+        [
+          11,
+          17
+        ]
+      ]
+    },
+    "phases": [
+      {
+        "de": "2025-11-01",
+        "a": "2026-06-30",
+        "clients": 1700000,
+        "regle": "mêmes heures creuses été comme hiver"
+      },
+      {
+        "de": "2026-12-01",
+        "a": "2027-10-31",
+        "clients": 9300000,
+        "regle": "heures creuses différentes l'été et l'hiver"
+      }
+    ],
+    "professionnels": "second semestre 2027",
+    "preavis_mois": 1,
+    "foyers_hphc": 14500000,
+    "foyers_concernes": 11000000,
+    "foyers_23h_7h": 1400000
+  },
+  "sources": {
+    "grilleEdf": {
+      "url": "https://particulier.edf.fr/content/dam/2-Actifs/Documents/Offres/Grille_prix_Tarif_Bleu.pdf",
+      "label": {
+        "fr": "EDF, grille de prix de l'offre « Tarif Bleu » applicable au 1er août 2026 (options Base, Heures Creuses et Tempo, prix TTC)",
+        "en": "EDF, price grid of the « Tarif Bleu » offer applicable from 1 August 2026 (Base, Off-peak and Tempo options, prices incl. tax)"
+      }
+    },
+    "creTrve2026": {
+      "url": "https://www.cre.fr/fileadmin/Documents/Deliberations/2026/260715_2026-147_TRVE.pdf",
+      "label": {
+        "fr": "CRE, délibération n° 2026-147 du 15 juillet 2026 portant proposition des tarifs réglementés de vente d'électricité au 1er août 2026",
+        "en": "CRE (energy regulator), deliberation no. 2026-147 of 15 July 2026 proposing the regulated electricity tariffs from 1 August 2026"
+      }
+    },
+    "rteCalendrier": {
+      "url": "https://www.services-rte.com/fr/visualisez-les-donnees-publiees-par-rte/calendrier-des-offres-de-fourniture-de-type-tempo.html",
+      "label": {
+        "fr": "RTE, calendrier des offres de fourniture de type Tempo (couleur du lendemain publiée la veille à 10 h 30)",
+        "en": "RTE (grid operator), calendar of Tempo-type supply offers (next day's colour published at 10:30 the day before)"
+      }
+    },
+    "rteMethode": {
+      "url": "https://www.services-rte.com/files/live/sites/services-rte/files/M%c3%a9thode%20de%20choix%20des%20jours%20Tempo%20indice%202.pdf",
+      "label": {
+        "fr": "RTE, Méthode de choix des jours Tempo, fiche explicative de l'algorithme (indice 2 du 7 janvier 2025)",
+        "en": "RTE, How Tempo days are chosen, explanatory note on the algorithm (issue 2, 7 January 2025)"
+      }
+    },
+    "creTempo2014": {
+      "url": "https://www.cre.fr/fileadmin/Documents/Deliberations/import/140716_missions_GR_tarifs_effacement.pdf",
+      "label": {
+        "fr": "CRE, délibération du 16 juillet 2014 sur les tarifs à effacement : 22 jours rouges, 43 blancs, heures creuses de 22 h à 6 h",
+        "en": "CRE, deliberation of 16 July 2014 on load-shedding tariffs: 22 red days, 43 white days, off-peak from 22:00 to 06:00"
+      }
+    },
+    "creHc2026": {
+      "url": "https://www.cre.fr/fileadmin/Documents/Deliberations/2026/260204_2026-33_Modif_TURPE_7_HTB_HTA_BT.pdf",
+      "label": {
+        "fr": "CRE, délibération n° 2026-33 du 4 février 2026 modifiant le TURPE 7 : nouvelles règles de placement des heures creuses (tableau 4)",
+        "en": "CRE, deliberation no. 2026-33 of 4 February 2026 amending TURPE 7: new rules for placing off-peak hours (table 4)"
+      }
+    },
+    "creHc2025": {
+      "url": "https://www.cre.fr/fileadmin/Documents/Communiques_de_presse/2025/250206_Annexe_CP_TURPE_7_HPHC.pdf",
+      "label": {
+        "fr": "CRE, focus du 6 février 2025 sur l'évolution du placement des heures creuses (8 heures, dont 5 consécutives la nuit)",
+        "en": "CRE, briefing of 6 February 2025 on the new placement of off-peak hours (8 hours, at least 5 consecutive at night)"
+      }
+    },
+    "enedisHc": {
+      "url": "https://www.enedis.fr/magazine/modification-des-heures-creuses-comprendre-ce-qui-change-partir-du-1er-novembre-2025",
+      "label": {
+        "fr": "Enedis, modification des heures creuses : ce qui change à partir du 1er novembre 2025 (deux phases, 1,7 puis 9,3 millions de clients)",
+        "en": "Enedis (distribution grid), changes to off-peak hours from 1 November 2025 (two phases, 1.7 then 9.3 million customers)"
+      }
+    },
+    "eco2mix": {
+      "url": "https://odre.opendatasoft.com/explore/dataset/eco2mix-national-cons-def/",
+      "label": {
+        "fr": "RTE, éCO2mix : consommation nationale d'électricité, données définitives et consolidées (open data ODRÉ)",
+        "en": "RTE, éCO2mix: national electricity consumption, final and consolidated data (ODRÉ open data)"
+      }
+    },
+    "spTrve2026": {
+      "url": "https://www.service-public.gouv.fr/particuliers/actualites/A18776",
+      "label": {
+        "fr": "Service-public.fr, 21 juillet 2026 : le Gouvernement accepte la hausse moyenne de 2,5 % des tarifs réglementés au 1er août 2026 (Heures creuses dès 3 kVA, Tempo 24 et 30 kVA distincts)",
+        "en": "Service-public.fr, 21 July 2026: the Government accepts the 2.5% average rise in regulated tariffs on 1 August 2026 (Off-peak from 3 kVA, separate Tempo 24 and 30 kVA)"
+      }
+    },
+    "spFournisseur": {
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F18116",
+      "label": {
+        "fr": "Service-public.fr, fiche F18116 : choisir un fournisseur d'électricité ou en changer",
+        "en": "Service-public.fr, sheet F18116: choosing or changing your electricity supplier"
+      }
+    }
+  }
+}

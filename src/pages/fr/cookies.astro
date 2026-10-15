@@ -1,0 +1,18 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { CONTACT_EMAIL, SITE_NAMES, CLARITY_ID } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'fr';
+const updated = '2026-10-15';
+---
+<PageLayout title={`Cookies – ${SITE_NAMES[lang]}`} description="Tempo Demain ne dépose aucun cookie : la couleur du jour s’affiche et la consommation, la puissance et les appareils saisis dans les calculs ne quittent pas votre appareil." lang={lang} noindex={true} breadcrumbs={[{ label: 'Cookies' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Cookies</h1>
+    <p>Tempo Demain <strong>ne dépose aucun cookie</strong>. Il n’affiche pas de bandeau de consentement, parce qu’il n’y a rien à accepter ni à refuser. Le détail des traitements figure dans la <a href={route('privacy', lang)}>politique de confidentialité</a>.</p>
+    <h2>Les calculs ne gardent rien</h2>
+    <p>Comparateur des options, coût de la journée de demain, puissance du compteur : chaque calcul se fait dans votre navigateur. Votre consommation, votre puissance et vos appareils ne sont écrits ni dans un cookie, ni dans le stockage local, ni envoyés à un serveur ; ils disparaissent à la fermeture de la page.</p>
+    {CLARITY_ID ? <><h2>Une mesure anonyme de la stabilité, sans cookie</h2><p>Le site charge Microsoft Clarity en mode sans cookie pour repérer les erreurs, les pages lentes et les clics sans effet : aucun cookie n’est déposé, chaque page vue reçoit un identifiant à usage unique, le contenu et vos saisies sont masqués. Bloquer clarity.ms l’arrête ; les calculs continuent de fonctionner.</p></> : <><h2>Aucun outil de mesure</h2><p>Aucune statistique d’audience, aucune publicité, aucun bouton de réseau social n’est chargé. Le comparateur intégré sur d’autres sites en iframe ne charge rien non plus.</p></>}
+    <h2>Ce qui pourrait changer</h2>
+    <p>Si un outil devait un jour être ajouté, cette page et la politique de confidentialité seraient mises à jour avant sa mise en service, avec sa finalité et la manière de s’y opposer. Question : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Mise à jour : {updated}.</p>
+  </div>
+</PageLayout>

@@ -1,0 +1,28 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'en';
+---
+<PageLayout title={`Editorial policy – ${SITE_NAMES[lang]}`} description="Where the Tempo colour and the prices published here come from, who answers for them, how often they are reread, and what happens when an error in a colour or a tariff is reported." lang={lang} noindex={true} breadcrumbs={[{ label: 'Editorial policy' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Editorial and corrections policy</h1>
+    <p>A wrong colour the day before a red day, and an electrically heated household pays for the day at full price. An out-of-date price, and comparing options means nothing. Here is where our data comes from and what we do when a figure is wrong.</p>
+    <h2>Responsibility</h2><p>Content and calculations are the responsibility of {AUTHOR_NAME}. Contact: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Primary sources only</h2>
+    <ul>
+      <li><strong>RTE</strong>: the Tempo calendar and next-day colour, national demand (éCO2mix);</li>
+      <li><strong>the Energy Regulatory Commission (CRE)</strong>: deliberations on regulated tariffs and on placing off-peak hours;</li>
+      <li><strong>the official blue tariff grid</strong> applicable on the stated date;</li>
+      <li><strong>Enedis</strong>: the timetable for changing off-peak hours.</li>
+    </ul>
+    <p>No colour and no price is taken from a comparison site or a forum. A colour forecast beyond RTE’s publication is never presented as information.</p>
+    <h2>Estimates, never bills</h2><p>Every cost is an estimate based on your inputs and the regulated tariff in force. Your off-peak windows, real meter readings and any surcharges make up the bill; the bill is what counts.</p>
+    <h2>Checks before publication</h2><p>Every rebuild replays bills worked out by hand and checks the quotas and placement rules of every Tempo season. A colour that broke a rule would stop the update rather than go on screen.</p>
+    <h2>Update schedule</h2><p>Colours: daily. Prices: at each regulated tariff change. Heating profile: every year after 31 August. The date at the foot of each page comes from the data files.</p>
+    <h2>Handling errors</h2>
+    <ol><li>Check against the primary source.</li><li>Fix the data or the code, add a test.</li><li>New date on the pages concerned.</li></ol>
+    <h2>Independence</h2><p>No commercial tie with any supplier, broker or installer. Any such relationship would be stated in the text.</p>
+    <p>See also the <a href={route('method', lang)}>calculation method</a>. Version: {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

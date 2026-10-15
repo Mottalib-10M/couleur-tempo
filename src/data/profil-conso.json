@@ -1,0 +1,233 @@
+{
+ "_lisezmoi": "Part de la consommation thermosensible (chauffage) tombant les jours bleus, blancs et rouges, saison par saison. Calculé par scripts/data/build-profil.mjs depuis éCO2mix (RTE, ODRÉ, consommation nationale définitive) et les couleurs Tempo de RTE. Ne pas modifier à la main.",
+ "source": "https://odre.opendatasoft.com/explore/dataset/eco2mix-national-cons-def/",
+ "built_at": "2026-10-15",
+ "saisons": {
+  "2014-2015": {
+   "jours": {
+    "B": 300,
+    "W": 43,
+    "R": 22
+   },
+   "chauffage": {
+    "B": 0.4967,
+    "W": 0.3003,
+    "R": 0.203
+   },
+   "conso_moyenne_mw": {
+    "B": 50406,
+    "W": 68948,
+    "R": 76207
+   },
+   "socle_mw": 46339
+  },
+  "2015-2016": {
+   "jours": {
+    "B": 301,
+    "W": 43,
+    "R": 22
+   },
+   "chauffage": {
+    "B": 0.5096,
+    "W": 0.299,
+    "R": 0.1914
+   },
+   "conso_moyenne_mw": {
+    "B": 50428,
+    "W": 67328,
+    "R": 72538
+   },
+   "socle_mw": 46563
+  },
+  "2016-2017": {
+   "jours": {
+    "B": 300,
+    "W": 43,
+    "R": 22
+   },
+   "chauffage": {
+    "B": 0.5187,
+    "W": 0.2975,
+    "R": 0.1838
+   },
+   "conso_moyenne_mw": {
+    "B": 51116,
+    "W": 69462,
+    "R": 74186
+   },
+   "socle_mw": 46663
+  },
+  "2017-2018": {
+   "jours": {
+    "B": 300,
+    "W": 43,
+    "R": 22
+   },
+   "chauffage": {
+    "B": 0.508,
+    "W": 0.3055,
+    "R": 0.1865
+   },
+   "conso_moyenne_mw": {
+    "B": 51131,
+    "W": 70969,
+    "R": 75696
+   },
+   "socle_mw": 46553
+  },
+  "2018-2019": {
+   "jours": {
+    "B": 300,
+    "W": 43,
+    "R": 22
+   },
+   "chauffage": {
+    "B": 0.5178,
+    "W": 0.2893,
+    "R": 0.1928
+   },
+   "conso_moyenne_mw": {
+    "B": 50516,
+    "W": 67305,
+    "R": 73614
+   },
+   "socle_mw": 46466
+  },
+  "2019-2020": {
+   "jours": {
+    "B": 301,
+    "W": 47,
+    "R": 18
+   },
+   "chauffage": {
+    "B": 0.5519,
+    "W": 0.2955,
+    "R": 0.1526
+   },
+   "conso_moyenne_mw": {
+    "B": 47990,
+    "W": 62962,
+    "R": 69854
+   },
+   "socle_mw": 43267
+  },
+  "2020-2021": {
+   "jours": {
+    "B": 300,
+    "W": 43,
+    "R": 22
+   },
+   "chauffage": {
+    "B": 0.5168,
+    "W": 0.28,
+    "R": 0.2032
+   },
+   "conso_moyenne_mw": {
+    "B": 49538,
+    "W": 65685,
+    "R": 74346
+   },
+   "socle_mw": 44988
+  },
+  "2021-2022": {
+   "jours": {
+    "B": 300,
+    "W": 43,
+    "R": 22
+   },
+   "chauffage": {
+    "B": 0.529,
+    "W": 0.2745,
+    "R": 0.1965
+   },
+   "conso_moyenne_mw": {
+    "B": 49853,
+    "W": 65893,
+    "R": 74184
+   },
+   "socle_mw": 45176
+  },
+  "2022-2023": {
+   "jours": {
+    "B": 300,
+    "W": 43,
+    "R": 22
+   },
+   "chauffage": {
+    "B": 0.4706,
+    "W": 0.2929,
+    "R": 0.2365
+   },
+   "conso_moyenne_mw": {
+    "B": 46404,
+    "W": 60928,
+    "R": 71028
+   },
+   "socle_mw": 43474
+  },
+  "2023-2024": {
+   "jours": {
+    "B": 301,
+    "W": 43,
+    "R": 22
+   },
+   "chauffage": {
+    "B": 0.5106,
+    "W": 0.2843,
+    "R": 0.2051
+   },
+   "conso_moyenne_mw": {
+    "B": 46976,
+    "W": 60028,
+    "R": 66677
+   },
+   "socle_mw": 43813
+  },
+  "2024-2025": {
+   "jours": {
+    "B": 300,
+    "W": 43,
+    "R": 22
+   },
+   "chauffage": {
+    "B": 0.4883,
+    "W": 0.3127,
+    "R": 0.199
+   },
+   "conso_moyenne_mw": {
+    "B": 47350,
+    "W": 64010,
+    "R": 68965
+   },
+   "socle_mw": 43666
+  },
+  "2025-2026": {
+   "jours": {
+    "B": 300,
+    "W": 43,
+    "R": 22
+   },
+   "chauffage": {
+    "B": 0.569,
+    "W": 0.2775,
+    "R": 0.1535
+   },
+   "conso_moyenne_mw": {
+    "B": 48721,
+    "W": 61100,
+    "R": 62438
+   },
+   "socle_mw": 44703
+  }
+ },
+ "moyenne": {
+  "chauffage": {
+   "B": 0.5156,
+   "W": 0.2924,
+   "R": 0.192
+  },
+  "saisons": 12,
+  "de": "2014-2015",
+  "a": "2025-2026"
+ }
+}

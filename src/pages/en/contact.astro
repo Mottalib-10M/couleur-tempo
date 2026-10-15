@@ -1,0 +1,22 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'en';
+---
+<PageLayout title={`Contact – ${SITE_NAMES[lang]}`} description="Write to the publisher of Tempo Demain: report a colour or price that does not match the official sources, ask about the method, or embed the comparison tool on your site." lang={lang} noindex={true} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Contact</h1>
+    <p>One address, read every week: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. There is no phone line and we call nobody back: this site sells nothing.</p>
+    <h2>Report an error</h2>
+    <p>For a colour, give the date and what RTE’s Tempo calendar shows for that day. For a price, attach the grid or official text that contradicts it. For a calculation, paste the comparison tool’s share link: it carries your inputs and nothing else. A confirmed error is corrected in the parameter file and becomes a test, as the <a href={route('editorial', lang)}>editorial policy</a> sets out.</p>
+    <h2>What we cannot do</h2>
+    <p>We have no access to any contract or meter. To change option, power or supplier, contact your supplier; for your exact off-peak hours, your supplier or your bill; for a power cut, the network operator.</p>
+    <h2>Embed the comparison tool</h2>
+    <p>Consumer groups, local energy agencies, newsrooms: the Base, Off-peak or Tempo comparison can be embedded free as an iframe. The code is on the <a href={route('widget', lang)}>embed page</a>.</p>
+    <h2>Publisher</h2>
+    <LegalIdentity lang={lang} />
+    <p>{AUTHOR_NAME} is responsible for Tempo Demain’s content; full identity in the <a href={route('terms', lang)}>legal notice</a>. Page reviewed on {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

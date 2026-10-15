@@ -1,0 +1,29 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { CONTACT_EMAIL, LEGAL, SITE_NAMES, SITE_URL, CLARITY_ID } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'fr';
+const updated = '2026-10-15';
+---
+<PageLayout title={`Politique de confidentialité – ${SITE_NAMES[lang]}`} description="Données traitées par Tempo Demain : aucune saisie transmise, aucun cookie, seuls les journaux techniques de l’hébergeur ; vos droits au titre du RGPD et la réclamation auprès de la CNIL." lang={lang} noindex={true} breadcrumbs={[{ label: 'Confidentialité' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Politique de confidentialité</h1>
+    <p>Cette page décrit les traitements de données personnelles liés à {SITE_URL}, conformément aux articles 12 à 14 du règlement (UE) 2016/679 (RGPD) et à la loi n° 78-17 du 6 janvier 1978.</p>
+    <h2>1. Responsable du traitement</h2>
+    <LegalIdentity lang={lang} />
+    <p>Contact : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Aucun délégué à la protection des données n’a été désigné, les conditions de l’article 37 du RGPD n’étant pas réunies.</p>
+    <h2>2. Vos saisies restent dans votre navigateur</h2>
+    <p>Consommation annuelle, puissance du compteur, part du chauffage, appareils : ce que vous tapez est calculé par votre navigateur et <strong>n’est transmis à aucun serveur</strong>, ni enregistré, ni rattaché à un identifiant. Le site ne vous demande ni nom, ni numéro de téléphone, ni adresse électronique. Le lien de partage reprend vos saisies dans l’adresse de la page : ne le confiez qu’aux personnes de votre choix.</p>
+    <h2>3. Traitements réalisés</h2>
+    <h3>Journaux de connexion de l’hébergeur</h3><p>L’hébergeur enregistre l’adresse IP, la date, la page demandée, le navigateur et la page de provenance. Finalité : sécurité et diagnostic du service. Base juridique : intérêt légitime (art. 6-1 f du RGPD). Durée : celle de la politique de l’hébergeur, GitHub.</p>
+    <h3>Aucun cookie, aucune mesure d’audience</h3><p>Le site ne dépose aucun cookie, n’utilise pas le stockage du navigateur et ne charge aucun outil de statistiques d’audience, de publicité ou de réseau social. Il n’y a donc pas de bandeau de consentement : il n’y a rien à accepter.</p>
+    {CLARITY_ID && <><h3>Mesure anonyme de la stabilité (Microsoft Clarity, sans cookie)</h3><p>Pour repérer les erreurs, les pages lentes et les boutons qui ne répondent pas, le site charge Microsoft Clarity dans son mode sans cookie : aucun cookie Clarity n’est déposé, chaque page vue reçoit un identifiant à usage unique, le contenu des pages et vos saisies sont masqués. Responsable : Microsoft Ireland Operations Limited. Conservation : 30 jours pour les enregistrements, 13 mois pour les statistiques agrégées. Base : intérêt légitime (art. 6-1 f RGPD). Opposition : bloquer clarity.ms dans votre navigateur, les calculs continuent de fonctionner.</p></>}
+    <h3>Messages envoyés</h3><p>Si vous écrivez à l’adresse de contact, votre message est conservé le temps de vous répondre et de corriger une éventuelle erreur, puis supprimé dans un délai de douze mois.</p>
+    <h2>4. Destinataires</h2><p>Aucune donnée n’est vendue ni cédée, notamment à un fournisseur d’énergie ou à un courtier. L’hébergeur, GitHub, y accède comme sous-traitant au sens de l’article 28 du RGPD.</p>
+    <h2>5. Transferts hors Union européenne</h2><p>GitHub, Inc. est établi aux États-Unis ; les journaux de connexion peuvent y être traités dans le cadre du EU–U.S. Data Privacy Framework et des clauses contractuelles types de la Commission européenne.</p>
+    <h2>6. Vos droits</h2><p>Droits d’accès, de rectification, d’effacement, de limitation, d’opposition et de portabilité (articles 15 à 22 du RGPD) : écrivez à <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>, réponse sous un mois. Réclamation possible auprès de la {LEGAL.supervisoryAuthority} : <a href={LEGAL.supervisoryAuthorityUrl} rel="nofollow noopener" target="_blank">{LEGAL.supervisoryAuthorityUrl}</a>.</p>
+    <h2>7. Pas de décision automatisée</h2><p>Le résultat d’un calcul est une estimation faite à votre demande, sans effet juridique : ce n’est pas une décision au sens de l’article 22 du RGPD, et il n’engage aucun fournisseur.</p>
+    <p>Voir aussi la page <a href={route('cookies', lang)}>cookies</a>. Dernière mise à jour : {updated}.</p>
+  </div>
+</PageLayout>

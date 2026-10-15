@@ -1,0 +1,18 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { CONTACT_EMAIL, SITE_NAMES, CLARITY_ID } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'en';
+const updated = '2026-10-15';
+---
+<PageLayout title={`Cookies – ${SITE_NAMES[lang]}`} description="Tempo Demain sets no cookie: the colour of the day shows and the consumption, meter power and appliances you enter in the calculations never leave your own device." lang={lang} noindex={true} breadcrumbs={[{ label: 'Cookies' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Cookies</h1>
+    <p>Tempo Demain <strong>sets no cookie</strong>. It shows no consent banner, because there is nothing to accept or refuse. Details of processing are in the <a href={route('privacy', lang)}>privacy policy</a>.</p>
+    <h2>Calculations keep nothing</h2>
+    <p>Option comparison, the cost of tomorrow, meter power: every calculation runs in your browser. Your consumption, power and appliances are written to no cookie, no local storage and no server; they vanish when you close the page.</p>
+    {CLARITY_ID ? <><h2>Anonymous stability measurement, cookieless</h2><p>The site loads Microsoft Clarity in cookieless mode to spot errors, slow pages and clicks that do nothing: no cookie is set, each page view gets a single-use identifier, content and your inputs are masked. Blocking clarity.ms stops it; calculations keep working.</p></> : <><h2>No measurement tool</h2><p>No audience statistics, no advertising, no social-media button is loaded. The comparison tool embedded on other sites as an iframe loads nothing either.</p></>}
+    <h2>What could change</h2>
+    <p>If a tool were ever added, this page and the privacy policy would be updated before it went live, with its purpose and how to object. Questions: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Updated: {updated}.</p>
+  </div>
+</PageLayout>

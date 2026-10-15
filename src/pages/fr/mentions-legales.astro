@@ -1,0 +1,30 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'fr';
+---
+<PageLayout title={`Mentions légales – ${SITE_NAMES[lang]}`} description="Éditeur, directeur de la publication, hébergeur, propriété intellectuelle, réutilisation des données de RTE et de la CRE, limites de responsabilité et droit applicable." lang={lang} noindex={true} breadcrumbs={[{ label: 'Mentions légales' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Mentions légales</h1>
+    <p>Informations publiées en application de l’article 6 III-1 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique.</p>
+    <h2>Éditeur du site</h2>
+    <LegalIdentity lang={lang} />
+    <p>Directeur de la publication : {AUTHOR_NAME}, responsable des contenus publiés sur {SITE_URL}.</p>
+    <h2>Hébergeur</h2>
+    <LegalIdentity mode="hosting" lang={lang} />
+    <h2>Objet du site et absence de conseil</h2>
+    <p>Le site affiche gratuitement la couleur Tempo publiée par RTE et des estimations du coût de l’électricité au tarif réglementé, calculées à partir des saisies du visiteur. Ces résultats ne sont ni une facture, ni une offre, ni un conseil personnalisé. Le site est indépendant : il n’est affilié ni à EDF, ni à RTE, ni à Enedis, ni à la CRE, ni à aucun fournisseur, et ne reprend pas leurs logos. Seule la couleur publiée par RTE sur son propre site fait foi. Méthode et limites : <a href={route('method', lang)}>méthode de calcul</a>.</p>
+    <h2>Données réutilisées</h2>
+    <p>Couleurs Tempo et consommation nationale : données publiées par RTE (calendrier Tempo, éCO2mix sur la plateforme ODRÉ), réutilisées avec mention de la source. Tarifs : grille officielle du tarif bleu et délibérations de la Commission de régulation de l’énergie. Les textes publics sont réutilisés sous <a href="https://www.etalab.gouv.fr/licence-ouverte-open-licence" rel="nofollow noopener" target="_blank">Licence ouverte Etalab</a> lorsqu’elle s’applique.</p>
+    <h2>Limites de responsabilité</h2>
+    <p>Les données sont relevées automatiquement et contrôlées, sans garantie d’absence d’erreur ni de disponibilité permanente. L’éditeur ne peut être tenu responsable d’une décision prise sur la seule base d’une estimation ou d’une couleur affichée ici. Une erreur se signale par la page <a href={route('contact', lang)}>contact</a>.</p>
+    <h2>Propriété intellectuelle</h2>
+    <p>Textes, graphismes et code sont protégés et restent la propriété de l’éditeur ; courtes citations autorisées avec un lien vers la page d’origine.</p>
+    <h2>Intégration du comparateur</h2><p>Le comparateur peut être intégré gratuitement en iframe, lien visible conservé : voir la <a href={route('widget', lang)}>page widget</a>.</p>
+    <h2>Données personnelles</h2><p>Les saisies ne quittent pas votre navigateur et aucun cookie n’est déposé. Voir la <a href={route('privacy', lang)}>politique de confidentialité</a> et la page <a href={route('cookies', lang)}>cookies</a>.</p>
+    <h2>Signalement</h2><p>Contenu illicite : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>, avec l’adresse de la page et le motif.</p>
+    <h2>Droit applicable</h2><p>Droit français. À défaut d’accord amiable, les juridictions compétentes de {LEGAL.jurisdiction}. Mise à jour : {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>
