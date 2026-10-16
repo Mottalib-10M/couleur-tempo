@@ -34,7 +34,7 @@ export default defineGuide({
     slug: 'jours-tempo-restants',
     nav: 'Jours Tempo restants',
     card: 'Les jours rouges, blancs et bleus qui restent dans la saison, jour par jour.',
-    title: 'Jours Tempo restants 2026-2027 : rouges, blancs et bleus',
+    title: 'Calendrier Tempo 2026-2027 : jours rouges et blancs restants',
     description: 'Jours Tempo restants en 2026-2027 : rouges et blancs encore à venir, calendrier jour par jour publié par RTE et coût des jours rouges sur votre facture.',
     h1: 'Jours Tempo restants dans la saison',
     intro: 'Combien de jours rouges, blancs et bleus il reste d’ici au 31 août, et ce que les jours rouges à venir vous coûteront.',

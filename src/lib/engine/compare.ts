@@ -30,6 +30,15 @@ export interface Entree {
   partHC: number;
   /** Part des heures pleines des jours rouges reportée en heures creuses (0 à 1). */
   effortRouge?: number;
+  /** Majoration annuelle de l'abonnement, en € HT (grille Tarif Bleu : sans Linky, index non transmis, autoproducteur). */
+  majorationHT?: number;
+}
+
+/** Situations de compteur de la grille Tarif Bleu du 1er août 2026 et leur majoration annuelle HT. */
+export type Compteur = 'linky' | 'sansLinky' | 'sansIndex' | 'autoprod';
+export function majorationHT(c: Compteur): number {
+  const T = P.taxes;
+  return c === 'sansLinky' ? T.majoration_sans_linky_an_ht : c === 'sansIndex' ? T.majoration_sans_index_an_ht : c === 'autoprod' ? T.majoration_autoproducteur_an_ht : 0;
 }
 
 /** Part de la consommation annuelle qui tombe les jours de chaque couleur. */
@@ -46,7 +55,8 @@ export function coutOption(o: Option, e: Entree): Resultat {
   const dispo = disponible(o, e.kva);
   const n = Math.min(1, Math.max(0, e.partHC)), kwh = Math.max(0, e.kwh);
   if (!dispo) return { o, dispo, extinction: false, abo: NaN, conso: NaN, total: NaN, mensuel: NaN, prixMoyen: NaN };
-  const abo = aboAnnuel(o, e.kva);
+  // La majoration s'ajoute à l'abonnement, soumise à la TVA de 20 % (comme l'abonnement), identique pour les trois options.
+  const abo = aboAnnuel(o, e.kva) + Math.max(0, e.majorationHT ?? 0) * (1 + P.taxes.tva);
   let conso = 0, tempo: LigneTempo[] | undefined;
   if (o === 'base') conso = kwh * prixBase(e.kva);
   else if (o === 'hc') conso = kwh * (n * P.hc.hc + (1 - n) * P.hc.hp);

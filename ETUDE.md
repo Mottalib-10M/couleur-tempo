@@ -59,3 +59,11 @@ RTE : données ouvertes du calendrier Tempo (page services-rte.com, la couleur p
 foi ») et éCO2mix sur ODRÉ (Licence Ouverte). Le portail data.rte-france.com (API « Tempo Like Supply
 Contract ») demande un compte et une clé OAuth : non utilisé, le relevé public suffit. Si RTE fermait
 l'accès public, le script est l'endroit unique à adapter (clé en secret GitHub).
+
+## Passe qualité du 2026-10-16 (brief BRIEF-QUALITE-2026-10-16)
+
+- Relu à la source : grille EDF Tarif Bleu du 1er août 2026 (PDF, toutes les cases concordent), délibération CRE 2026-147 (+3,12 % HT résidentiels, accise 30,62 €/MWh, Tempo 24 kVA distinct), délibération CRE du 16 juillet 2014 (22 rouges, 43 blancs, pas de rouge le week-end ni férié, 5 d'affilée, pas de blanc le dimanche, 22 h - 6 h), fiche RTE indice 2, page calendrier RTE (10 h 30, pré-signal 8 h - 10 h 30), CRE 2026-33 tableau 4, focus CRE 2025 (14,5 M, 11 M, 1,4 M), page Enedis (1,7 M puis 9,3 M). Une fourchette sans source retirée (ballon d'eau chaude « 25 à 35 % »).
+- **Grille du 1er février 2027** : non publiée au 16 octobre 2026 (proposition CRE attendue en janvier) ; la page méthode signale la baisse d'accise annoncée pour février 2027 (art. 71 LF 2026, cité par la CRE).
+- **Limite levée : jour Tempo 6 h - 6 h** au lieu du jour civil pour le profil de chauffage (relevés éCO2mix au quart d'heure, heure de Paris) : part des jours rouges 19,2 % → 19,4 % (12 saisons).
+- **Limite levée : majorations d'abonnement** (sans Linky 40,08 € HT, index non transmis 25,62 €, autoproducteur 9,84 €) choisies dans le comparateur, TVA 20 % comprise ; testées.
+- Premier écran : premier champ 467 → 427 px (message d'attente de la couleur de demain sur une ligne). Charte éditoriale réécrite (phrase reprise de calculdivorce.fr). Titres alignés sur « tempo edf » et « calendrier tempo » (check-requetes : 27 → 1 suggestion non couverte, hors sujet).

@@ -27,7 +27,7 @@ const nomOpt = (o: string, fr: boolean) => (o === 'base' ? 'Base' : o === 'hc' ?
 
 export const HOME: Record<'fr' | 'en', Home> = {
   fr: {
-    title: 'Couleur Tempo aujourd’hui et demain, saison 2026-2027',
+    title: 'Couleur Tempo EDF aujourd’hui et demain, saison 2026-2027',
     description: 'Couleur Tempo du jour et de demain publiée par RTE, jours rouges et blancs restants en 2026-2027, et comparateur Base, Heures creuses ou Tempo sans téléphone.',
     h1: 'Couleur Tempo aujourd’hui et demain',
     intro: 'La couleur publiée par RTE, les jours restants et l’option la moins chère pour vous, sans numéro de téléphone à laisser.',

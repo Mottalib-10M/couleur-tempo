@@ -7,11 +7,13 @@
  * croisée avec les couleurs Tempo de src/data/tempo.json.
  *
  * Méthode, saison par saison (1er septembre - 31 août) :
- *   - C(j) = consommation moyenne du jour civil j (MW) ;
+ *   - C(j) = consommation moyenne du JOUR TEMPO j, de 6 h à 6 h le lendemain (MW, heure de Paris) :
+ *     tranches de 6 h à 24 h du jour j + tranches de 0 h à 6 h du jour j+1 (champ « heure » local) ;
  *   - socle = médiane de C(j) de mai à septembre (consommation sans chauffage) ;
  *   - part thermosensible H(j) = max(0, C(j) - socle) : c'est le profil d'un chauffage électrique ;
  *   - part de H tombant les jours de chaque couleur, et part des jours (usages répartis à plat).
- * Le jour civil (0 h - 24 h) approche le jour Tempo (6 h - 6 h) : décalage de six heures assumé.
+ * Jusqu'au 2026-10-16, le jour civil (0 h - 24 h) servait d'approximation ; le découpage 6 h - 6 h
+ * le remplace (écart mesuré imprimé à chaque exécution si l'ancien fichier existe).
  *
  * Écrit src/data/profil-conso.json. À relancer une fois par an, après la clôture d'une saison.
  * Usage : node scripts/data/build-profil.mjs
@@ -24,12 +26,22 @@ const here = dirname(fileURLToPath(import.meta.url));
 const OUT = join(here, '../../src/data/profil-conso.json');
 const tempo = JSON.parse(readFileSync(join(here, '../../src/data/tempo.json'), 'utf8'));
 const API = 'https://odre.opendatasoft.com/api/explore/v2.1/catalog/datasets/eco2mix-national-cons-def/exports/json';
-const q = new URLSearchParams({ select: 'date,avg(consommation) as c', group_by: 'date', where: "consommation is not null and date_heure >= '2014-08-31T00:00:00'", order_by: 'date' });
-const r = await fetch(`${API}?${q}`, { signal: AbortSignal.timeout(180000) });
-if (!r.ok) { console.error(`ODRÉ ${r.status}`); process.exit(1); }
-const rows = await r.json();
-const C = Object.fromEntries(rows.map((x) => [x.date, x.c]));
+// Tranches de nuit (0 h - 6 h, heure de Paris) : rattachées au jour Tempo de la veille.
+const NUIT = Array.from({ length: 24 }, (_, i) => `'${String(Math.floor(i / 4)).padStart(2, '0')}:${String((i % 4) * 15).padStart(2, '0')}'`).join(',');
+async function parJour(nuit) {
+  const q = new URLSearchParams({ select: 'date,avg(consommation) as c,count(consommation) as n', group_by: 'date', where: `consommation is not null and date_heure >= '2014-08-31T00:00:00+02:00' and ${nuit ? '' : 'not '}heure in (${NUIT})`, order_by: 'date' });
+  const r = await fetch(`${API}?${q}`, { signal: AbortSignal.timeout(180000) });
+  if (!r.ok) { console.error(`ODRÉ ${r.status}`); process.exit(1); }
+  return Object.fromEntries((await r.json()).map((x) => [x.date, x]));
+}
+const [JOUR, NUITS] = [await parJour(false), await parJour(true)];
 const addDays = (s, n) => { const d = new Date(`${s}T12:00:00Z`); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); };
+// C(j) : moyenne pondérée des tranches 6 h - 24 h de j et 0 h - 6 h de j+1 (jour Tempo complet seulement).
+const C = {};
+for (const [d, a] of Object.entries(JOUR)) {
+  const b = NUITS[addDays(d, 1)];
+  if (b && a.n >= 30 && b.n >= 10) C[d] = (a.c * a.n + b.c * b.n) / (a.n + b.n);
+}
 const median = (a) => { const s = [...a].sort((x, y) => x - y); const m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
 const round = (x, d = 4) => Math.round(x * 10 ** d) / 10 ** d;
 

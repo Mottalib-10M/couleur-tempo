@@ -40,7 +40,7 @@ export default defineGuide({
       return `
 <h2>Ce que mesure le profil de chauffage</h2>
 <p>RTE publie dans ${h.src('eco2mix', 'éCO2mix')} la consommation d’électricité de la France entière, par demi-heure, depuis plus de dix ans. Pour chaque saison Tempo, nous en avons retenu la moyenne de chaque jour, puis retiré le socle de l’été, la consommation médiane de mai à septembre, quand presque personne ne se chauffe. Ce qui dépasse le socle dépend du froid : c’est la part thermosensible, celle du chauffage. Il suffit ensuite d’additionner cette part sur les jours bleus, blancs et rouges de la saison.</p>
-<p>La méthode a une limite assumée : le jour civil, de minuit à minuit, sert d’approximation au jour Tempo, de 6 h à 6 h. Elle reste fidèle à l’essentiel, parce que les jours rouges sont choisis par la ${h.src('rteMethode', 'méthode de RTE')} précisément sur cette consommation nette, celle qui monte avec le froid.</p>
+<p>Chaque journée est comptée comme un jour Tempo, de 6 h à 6 h le lendemain, à partir des relevés au quart d’heure. La mesure porte sur la consommation nationale, alors que la ${h.src('rteMethode', 'méthode de RTE')} choisit les rouges sur la consommation nette, déduction faite de l’éolien et du solaire : les deux montent ensemble avec le froid, ce qui rend la répartition fidèle à l’essentiel.</p>
 
 <h2>Saison par saison</h2>
 ${h.table(['Saison', 'Jours rouges', 'Chauffage les jours rouges', 'Les jours blancs', 'Les jours bleus'], parSaison(h), 'Part de la consommation thermosensible nationale tombée chaque couleur, calculée depuis éCO2mix et le calendrier Tempo de RTE.', ['l', 'r', 'r', 'r', 'r'])}
@@ -99,7 +99,7 @@ ${h.table(['Couleur', 'Part du chauffage', 'kWh', 'Coût en Tempo', 'Mêmes kWh 
       return `
 <h2>What the heating profile measures</h2>
 <p>RTE publishes in ${h.src('eco2mix', 'éCO2mix')} the electricity consumption of the whole of France, half-hour by half-hour, going back more than ten years. For each Tempo season we took each day’s average, then removed the summer baseline, the median consumption from May to September when almost nobody heats. Whatever exceeds the baseline depends on the cold: that is the temperature-sensitive part, the heating. It then only remains to add that part up over the season’s blue, white and red days.</p>
-<p>The method has one stated limit: the calendar day, midnight to midnight, stands in for the Tempo day, 06:00 to 06:00. It stays true to the essentials, because red days are chosen by ${h.src('rteMethode', 'RTE’s method')} on exactly this net demand, the one that climbs with the cold.</p>
+<p>Each day is counted as a Tempo day, 06:00 to 06:00 the next morning, from the quarter-hour readings. The measure uses national demand, whereas ${h.src('rteMethode', 'RTE’s method')} picks red days on net demand, after wind and solar output: both climb together with the cold, which keeps the split true to the essentials.</p>
 
 <h2>Season by season</h2>
 ${h.table(['Season', 'Red days', 'Heating on red days', 'On white days', 'On blue days'], parSaison(h), 'Share of national temperature-sensitive demand falling on each colour, worked out from éCO2mix and RTE’s Tempo calendar.', ['l', 'r', 'r', 'r', 'r'])}

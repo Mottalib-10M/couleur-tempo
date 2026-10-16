@@ -10,7 +10,7 @@ export const CURRENCY = 'EUR';
 export const YEAR = 2026;
 /** Année de création du site — signal d'ancienneté (RECETTE §8.0). */
 export const SITE_FOUNDED = '2026';
-export const LAST_UPDATED = '2026-10-15';
+export const LAST_UPDATED = '2026-10-16';
 export const AUTHOR_NAME = 'Radif Partners';
 export const AUTHOR_ROLE: Record<string, string> = {"fr": "Éditeur de calculateurs d'électricité domestique · option Tempo, heures creuses, tarif réglementé", "en": "Publisher of household electricity calculators · Tempo option, off-peak hours, regulated tariff"};
 export const AUTHOR_DESC: Record<string, string> = {"fr": "Radif Partners relève chaque jour la couleur Tempo publiée par RTE et code les grilles du tarif réglementé proposées par la CRE, pour que chaque foyer compare Base, Heures creuses et Tempo sur sa propre consommation, sans qu'on lui demande un numéro de téléphone.", "en": "Radif Partners records the Tempo colour published by RTE every day and codes the regulated tariff grids proposed by the CRE, so that every household can compare Base, Off-peak and Tempo on its own consumption without being asked for a phone number."};

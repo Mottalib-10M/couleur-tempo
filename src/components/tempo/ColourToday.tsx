@@ -17,7 +17,8 @@ function Card({ d, c, title, sub, lang }: { d: string; c: Jour; title: string; s
   return (
     <div className="rounded-xl border-2 px-3 py-2 sm:px-4 sm:py-3" style={cardStyle(c)} data-couleur={c ?? 'inconnue'}>
       <p className="text-xs font-medium opacity-90 sm:text-sm"><span className="font-semibold">{title}</span><span className="max-sm:block"><span className="sm:inline hidden"> · </span>{jourLong(d, lang)}</span></p>
-      <p className="mt-0.5 text-xl font-bold leading-tight sm:text-3xl">{c ? NOM_JOUR[lang][c] : sub}</p>
+      {/* Couleur en grand ; le message d'attente, plus long, reste sur une ligne pour ne pas repousser le comparateur sous la ligne de flottaison. */}
+      <p className={`mt-0.5 font-bold leading-tight ${c ? 'text-xl sm:text-3xl' : 'text-lg sm:text-xl'}`}>{c ? NOM_JOUR[lang][c] : sub}</p>
       <p className="mt-0.5 text-xs opacity-90 max-sm:hidden">{c ? TX[lang].hours : TX[lang].pendingWhy}</p>
     </div>
   );

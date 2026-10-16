@@ -33,6 +33,12 @@ describe('Comparateur : cas recalculés à la main', () => {
   it('Heures creuses : 190,32 + 8 000 × (0,35 × 0,1589 + 0,65 × 0,2142) = 1 749,08 €', () => expect(M.coutOption('hc', e).total).toBeCloseTo(1749.08, 2));
   it('Tempo sans chauffage : 1 632,83 €', () => expect(M.coutOption('tempo', e).total).toBeCloseTo(1632.83, 2));
   it('Tempo avec la moitié des heures pleines rouges reportées : 1 543,82 €', () => expect(M.coutOption('tempo', { ...e, effortRouge: 0.5 }).total).toBeCloseTo(1543.82, 2));
+  it('sans Linky : + 40,08 € HT × 1,2 = 48,10 € TTC par an, sur chaque option, classement inchangé', () => {
+    expect(M.majorationHT('sansLinky')).toBe(40.08); expect(M.majorationHT('linky')).toBe(0);
+    expect(M.coutOption('base', { ...e, majorationHT: 40.08 }).total).toBeCloseTo(1791.12 + 48.096, 3);
+    expect(M.comparer({ ...e, majorationHT: 40.08 }).meilleure.o).toBe('tempo');
+  });
+  it('autoproducteur avec injection : 9,84 € HT → 11,81 € TTC', () => expect(M.coutOption('hc', { ...e, majorationHT: M.majorationHT('autoprod') }).total - 1749.08).toBeCloseTo(11.808, 2));
   it('Base 9 kVA, 4 000 kWh : 19,88 × 12 + 4 000 × 0,1985 = 1 032,56 €', () => expect(M.coutOption('base', { kwh: 4000, kva: 9, chauffage: 0, partHC: 0 }).total).toBeCloseTo(1032.56, 2));
   it('les parts par couleur font 100 %, et le chauffage alourdit les jours rouges', () => {
     const p0 = M.partsCouleur(0), p1 = M.partsCouleur(1);

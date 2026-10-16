@@ -49,7 +49,7 @@ export default defineGuide({
       return `
 <h2>Toutes les saisons, une par ligne</h2>
 ${h.table(['Saison', 'Rouges', 'Blancs', 'Bleus', 'Premier rouge', 'Dernier rouge', 'Plus longue série'], S.map((s) => [
-  s.complete ? s.key : `${s.key} (en cours)`, h.num(s.n.R), h.num(s.n.W), h.num(s.n.B),
+  `<span class="whitespace-nowrap">${s.key}</span>${s.complete ? '' : ' (en cours)'}`, h.num(s.n.R), h.num(s.n.W), h.num(s.n.B),
   s.premierRouge ? h.date(s.premierRouge) : 'aucun encore', s.dernierRouge ? h.date(s.dernierRouge) : 'aucun encore', s.premierRouge ? `${h.num(s.serieRouge)} j` : '',
 ]), 'Couleurs publiées par RTE ; série : jours rouges qui se suivent au calendrier.', ['l', 'r', 'r', 'r', 'l', 'l', 'r'])}
 <p>Le tableau est recalculé à chaque relevé à partir du ${h.src('rteCalendrier', 'calendrier de RTE')}. Toutes les saisons closes respectent les règles de la ${h.src('creTempo2014', 'délibération de 2014')} : aucun rouge un samedi, un dimanche ou un jour férié, aucun hors de la période du 1er novembre au 31 mars, jamais plus de cinq de suite, aucun blanc un dimanche. Nos tests le vérifient jour par jour avant chaque mise en ligne.</p>
@@ -88,7 +88,7 @@ ${h.table(['Saison', 'Chauffage en jours rouges', 'Chauffage en jours blancs', '
       return `
 <h2>Every season, one row each</h2>
 ${h.table(['Season', 'Red', 'White', 'Blue', 'First red', 'Last red', 'Longest run'], S.map((s) => [
-  s.complete ? s.key : `${s.key} (current)`, h.num(s.n.R), h.num(s.n.W), h.num(s.n.B),
+  `<span class="whitespace-nowrap">${s.key}</span>${s.complete ? '' : ' (current)'}`, h.num(s.n.R), h.num(s.n.W), h.num(s.n.B),
   s.premierRouge ? h.date(s.premierRouge) : 'none yet', s.dernierRouge ? h.date(s.dernierRouge) : 'none yet', s.premierRouge ? `${h.num(s.serieRouge)} d` : '',
 ]), 'Colours published by RTE; run: red days following each other on the calendar.', ['l', 'r', 'r', 'r', 'l', 'l', 'r'])}
 <p>The table is recalculated at every reading from ${h.src('rteCalendrier', 'RTE’s calendar')}. Every completed season keeps to the rules of the ${h.src('creTempo2014', '2014 deliberation')}: no red day on a Saturday, Sunday or public holiday, none outside 1 November to 31 March, never more than five in a row, no white day on a Sunday. Our tests check this day by day before every release.</p>
